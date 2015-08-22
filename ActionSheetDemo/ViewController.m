@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<UIActionSheetDelegate>
 
 @end
 
@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIActionSheet *actionSheetPopularityCriteriaList = [[UIActionSheet alloc] initWithTitle:@"Choose the Popularity criteria to sort by" delegate:self cancelButtonTitle:@"All" destructiveButtonTitle:nil otherButtonTitles: nil];
+    
+    [actionSheetPopularityCriteriaList addButtonWithTitle:@"Week"];
+    [actionSheetPopularityCriteriaList addButtonWithTitle:@"Month"];
+    
+    [actionSheetPopularityCriteriaList showInView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
